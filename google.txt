@@ -1,0 +1,27 @@
+*** Settings ***
+Library           Selenium2Library
+Suite Teardown    Close Browser
+
+*** Variables ***
+${GOOGLE URL}    http://www.google.com
+
+*** Test Cases ***
+Search data with keyword
+    Open google
+    Search data     armeo
+    I should see    armeo
+
+*** Keywords ***
+Open google
+    Open Browser    ${GOOGLE URL}
+    Maximize Browser Window
+    Title Should Be    Google
+
+Search data
+    [Arguments]    ${keyword}
+    Input Text    gbqfq    ${keyword}
+    Click Button    gbqfb
+
+I should see
+    [Arguments]    ${expected}
+    Wait Until Page Contains    ${expected}

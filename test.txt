@@ -1,0 +1,11 @@
+*** Settings ***
+Library     Selenium2Library
+
+*** Variables ***
+${super secret}=    my super secret password
+
+*** Test cases ***
+Example
+    Open Browser    http://www.google.com
+    Input Password    gbqfq    ${super secret}
+    Close All Browsers
